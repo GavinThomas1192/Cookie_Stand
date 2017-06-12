@@ -7,7 +7,10 @@ var pikePlaceMkt = {
   maxCustomersPerHour: 65,
   avgCookiesPerCustomer: 6.3,
   calcCustomersThisHour: function(min, max) {
-    var numberCustomersPerHour = Math.floor(Math.random() * (maxCustomersPerHour - minCustomersPerHour + 1)) + minCustomersPerHour;
+    var numberCustomersPerHour = Math.floor(Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1)) + this.minCustomersPerHour;
+    for (var i = 0; i < hours.length; i++) {
+      this.customersEachHour.push(numberCustomersPerHour[i]);
+    }
     return numberCustomersPerHour;
   },
   customersEachHour: [],
@@ -18,3 +21,6 @@ var pikePlaceMkt = {
   cookiesEachHour: [],
   render: function() {}
 };
+
+pikePlaceMkt.calcCustomersThisHour(23, 65);
+console.log(pikePlaceMkt.customersEachHour);
