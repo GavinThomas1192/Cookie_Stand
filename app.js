@@ -1,26 +1,40 @@
-//Create five objects
-//Find random number for the pertaining min and max average customers with their respective avg cookie purchase.
-//push the math functions into an array then use for loop to print that array onto the page.
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+
 var pikePlaceMkt = {
   minCustomersPerHour: 23,
   maxCustomersPerHour: 65,
   avgCookiesPerCustomer: 6.3,
+  customersEachHour: [],
+  cookiesEachHour: [],
   calcCustomersThisHour: function(min, max) {
-    var numberCustomersPerHour = Math.floor(Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1)) + this.minCustomersPerHour;
     for (var i = 0; i < hours.length; i++) {
-      this.customersEachHour.push(numberCustomersPerHour[i]);
+      var numberCustomersPerHour = Math.floor(Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1)) + this.minCustomersPerHour;
+      this.customersEachHour.push(numberCustomersPerHour);
+      // console.log(numberCustomersPerHour);
     }
     return numberCustomersPerHour;
   },
-  customersEachHour: [],
+
   calcCookiesThisHour: function() {
-    var cookiesSoldPerHour = numberCustomersPerHour * avgCookiesPerCustomer;
-    return cookiesSoldPerHour;
+    for (var j = 0; j < this.customersEachHour.length; j++) {
+      var totalCookieSales = Math.floor(this.customersEachHour[j] * this.avgCookiesPerCustomer);
+      this.cookiesEachHour.push(totalCookieSales);
+    }
   },
-  cookiesEachHour: [],
-  render: function() {}
+
+  render: function() {
+    var listData = document.getElementById('lists');
+    for (var x = 0; x < hours.length; x++) {
+      console.log(x);
+      var liEl = document.createElement('li');
+      liEl.textContent = this.cookiesEachHour[x];
+      listData.appendChild(liEl);
+    }
+  }
 };
 
-pikePlaceMkt.calcCustomersThisHour(23, 65);
+pikePlaceMkt.calcCustomersThisHour();
+pikePlaceMkt.calcCookiesThisHour();
+pikePlaceMkt.render();
 console.log(pikePlaceMkt.customersEachHour);
+console.log(pikePlaceMkt.cookiesEachHour);
