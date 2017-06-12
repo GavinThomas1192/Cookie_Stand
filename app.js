@@ -27,7 +27,7 @@ var pikePlaceMkt = {
     for (var x = 0; x < hours.length; x++) {
       console.log(x);
       var liEl = document.createElement('li');
-      liEl.textContent = this.cookiesEachHour[x];
+      liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
   }
@@ -67,7 +67,7 @@ var seatacAirport = {
     for (var x = 0; x < hours.length; x++) {
       console.log(x);
       var liEl = document.createElement('li');
-      liEl.textContent = this.cookiesEachHour[x];
+      liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
   }
@@ -107,7 +107,7 @@ var seattleCenter = {
     for (var x = 0; x < hours.length; x++) {
       console.log(x);
       var liEl = document.createElement('li');
-      liEl.textContent = this.cookiesEachHour[x];
+      liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
   }
@@ -147,7 +147,7 @@ var capitolHill = {
     for (var x = 0; x < hours.length; x++) {
       console.log(x);
       var liEl = document.createElement('li');
-      liEl.textContent = this.cookiesEachHour[x];
+      liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
   }
@@ -187,7 +187,7 @@ var alki = {
     for (var x = 0; x < hours.length; x++) {
       console.log(x);
       var liEl = document.createElement('li');
-      liEl.textContent = this.cookiesEachHour[x];
+      liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
   }
