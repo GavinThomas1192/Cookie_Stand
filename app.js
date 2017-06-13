@@ -33,7 +33,7 @@ CookieStore.prototype.calcCookiesThisHour = function() {
 var renderHeader = function() {
   var trEL = document.createElement('tr');
   var thEL = document.createElement('th');
-  thEL.textContent = '';
+  thEL.textContent = 'Location';
   trEL.appendChild(thEL);
   for (var i = 0; i < hours.length; i++) {
     var thEL = document.createElement('th');
