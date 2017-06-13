@@ -35,6 +35,9 @@ var pikePlaceMkt = {
       return a + b;
     });
     listData.appendChild(liEl);
+    var liEl = document.createElement('li');
+    liEl.textContent = '********************************';
+    listData.appendChild(liEl);
   }
 };
 
@@ -79,6 +82,9 @@ var seatacAirport = {
     liEl.textContent = 'Total cookie Sales ' + seatacAirport.cookiesEachHour.reduce(function(a, b){
       return a + b;
     });
+    listData.appendChild(liEl);
+    var liEl = document.createElement('li');
+    liEl.textContent = '********************************';
     listData.appendChild(liEl);
   }
 };
@@ -125,6 +131,9 @@ var seattleCenter = {
       return a + b;
     });
     listData.appendChild(liEl);
+    var liEl = document.createElement('li');
+    liEl.textContent = '********************************';
+    listData.appendChild(liEl);
   }
 };
 
@@ -170,6 +179,9 @@ var capitolHill = {
       return a + b;
     });
     listData.appendChild(liEl);
+    var liEl = document.createElement('li');
+    liEl.textContent = '********************************';
+    listData.appendChild(liEl);
   }
 };
 
@@ -214,6 +226,9 @@ var alki = {
     liEl.textContent = 'Total cookie Sales ' + alki.cookiesEachHour.reduce(function(a, b){
       return a + b;
     });
+    listData.appendChild(liEl);
+    var liEl = document.createElement('li');
+    liEl.textContent = '********************************';
     listData.appendChild(liEl);
   }
 };
