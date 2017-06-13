@@ -1,7 +1,4 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-// function getSum(total, num) {
-//   return total + num;
-// }
 
 var pikePlaceMkt = {
   minCustomersPerHour: 23,
@@ -33,9 +30,11 @@ var pikePlaceMkt = {
       liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
-    // var liEl = document.createElement('li');
-    // liEl.textContent = cookiesEachHour.reduce(getSum);
-    // listData.appendChild(liEl);
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Total cookie Sales ' + pikePlaceMkt.cookiesEachHour.reduce(function(a, b){
+      return a + b;
+    });
+    listData.appendChild(liEl);
   }
 };
 
@@ -76,6 +75,11 @@ var seatacAirport = {
       liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Total cookie Sales ' + seatacAirport.cookiesEachHour.reduce(function(a, b){
+      return a + b;
+    });
+    listData.appendChild(liEl);
   }
 };
 
@@ -116,6 +120,11 @@ var seattleCenter = {
       liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Total cookie Sales ' + seattleCenter.cookiesEachHour.reduce(function(a, b){
+      return a + b;
+    });
+    listData.appendChild(liEl);
   }
 };
 
@@ -156,6 +165,11 @@ var capitolHill = {
       liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Total cookie Sales ' + capitolHill.cookiesEachHour.reduce(function(a, b){
+      return a + b;
+    });
+    listData.appendChild(liEl);
   }
 };
 
@@ -196,6 +210,11 @@ var alki = {
       liEl.textContent = hours[x] + ': ' + this.cookiesEachHour[x] + ' cookies';
       listData.appendChild(liEl);
     }
+    var liEl = document.createElement('li');
+    liEl.textContent = 'Total cookie Sales ' + alki.cookiesEachHour.reduce(function(a, b){
+      return a + b;
+    });
+    listData.appendChild(liEl);
   }
 };
 
