@@ -1,3 +1,54 @@
 body {
+<<<<<<< HEAD
   background-color: pink;
+=======
+  background-image: url(IMG/seattle.jpg);
+  background-blend-mode: lighten;
+  border: solid 1px black;
+}
+
+#salmoncontainer {
+  transform: rotate(-30deg);
+  position: absolute;
+  margin-left: ;
+  margin-top: 5%;
+  opacity: 0.70;
+  z-index: 1;
+  /*border: solid 1px black;*/
+}
+
+#salmoncontainer2 {
+  transform: rotate(30deg);
+  position: absolute;
+  margin-left: 58%;
+  margin-top: 9%;
+  opacity: 0.70;
+  z-index: 1;
+  /*border: solid 1px black;*/
+}
+
+
+/*#backgroundimagecontainer {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  opacity: 0.70;
+
+}*/
+
+
+/*Welcome Message */
+
+header {
+  position: absolute;
+  color: salmon;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 30px;
+  margin-left: 3%;
+  margin-top: 10%;
+  text-align: center;
+  max-width: 100%;
+  z-index: 2;
+>>>>>>> day2
 }
