@@ -1,7 +1,7 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+
 // function getSum(total, num) {
 //   return total + num;
-// }
 
 var pikePlaceMkt = {
   minCustomersPerHour: 23,
@@ -34,7 +34,7 @@ var pikePlaceMkt = {
       listData.appendChild(liEl);
     }
     // var liEl = document.createElement('li');
-    // liEl.textContent = cookiesEachHour.reduce(getSum);
+    // liEl.textContent = 'Total: ' + pikePlaceMkt.cookiesEachHour.reduce(getSum) + ' cookies';
     // listData.appendChild(liEl);
   }
 };
