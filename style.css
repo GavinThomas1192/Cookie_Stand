@@ -1,14 +1,13 @@
-
 body {
   background-image: url(IMG/seattle.jpg);
-  background-blend-mode:lighten;
+  background-blend-mode: lighten;
   border: solid 1px black;
 }
 
 #salmoncontainer {
   transform: rotate(-30deg);
   position: absolute;
-  margin-left:;
+  margin-left: ;
   margin-top: 5%;
   opacity: 0.70;
   z-index: 1;
@@ -18,7 +17,7 @@ body {
 #salmoncontainer2 {
   transform: rotate(30deg);
   position: absolute;
-  margin-left:58%;
+  margin-left: 58%;
   margin-top: 9%;
   opacity: 0.70;
   z-index: 1;
@@ -37,11 +36,13 @@ body {
 
 
 /*Welcome Message */
+
 header {
   position: absolute;
-  font-family: Impact, cursive, sans-serif;
+  color: salmon;
+  font-family: 'Archivo Black', sans-serif;
   font-size: 30px;
-  margin-left: 15%;
+  margin-left: 3%;
   margin-top: 10%;
   text-align: center;
   max-width: 100%;
