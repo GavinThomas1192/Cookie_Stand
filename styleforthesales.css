@@ -1,5 +1,5 @@
 table, td {
-  padding: 20px;
+  padding: 10px 40px 10px 0px;
   font-size: 1.5em;
   border-spacing: 0px;
   background-color: pink:
@@ -10,7 +10,7 @@ body {
   background-color: rgb(204, 241, 255, 0.5);
   background-image: url("IMG/seattle.jpg");
   background-blend-mode: lighten;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 th, td {

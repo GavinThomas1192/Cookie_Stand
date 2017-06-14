@@ -1,9 +1,13 @@
+'use-strict;';
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-//To-DO: use a for loop within a loop for calculating daily totals of all stores
 //Make header/footer row function
+//PUT RENDER FUNCTION INTO OBJECT CONTRUCTOR IN ORDER FOR FORM TO WORK
+//PARSE INT the data from form so it works in the object constructor
+//function render table
 var hours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 var allLocations = [];
 var theTable = document.getElementById('table');
+var hourlyCookieSales = [];
 
 function CookieStore(locationName, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerCustomer) {
   this.locationName = locationName;
@@ -13,6 +17,8 @@ function CookieStore(locationName, minCustomersPerHour, maxCustomersPerHour, avg
   this.customersEachHour = [];
   this.cookiesEachHour = [];
   this.totalDailyCookiesSold = 0;
+  this.calcCustomersThisHour();
+  this.calcCookiesThisHour();
   allLocations.push(this);
 }
 
@@ -34,14 +40,17 @@ CookieStore.prototype.calcCookiesThisHour = function() {
     this.totalDailyCookiesSold += (totalCookieSales);
   }
 };
-// ***Attempting to make daily totals per store
-// CookieStore.prototype.calcTotalCookieSalesForDay = function() {
-//   var totalCookieSalesForDay = this.cookiesEachHour.reduce(function(a, b) {
-//       a + b
-//     };
-//     return this.totalDailyCookiesSold.push(totalCookieSalesForDay);
-//   };
-// }
+//**Attempting to make totals per hour
+var calcHourlyTotals = function() {
+  for (var i = 0; i < hours.length; i++) {
+    var reference = 0;
+    for (var j = 0; j < allLocations.length; j++) {
+      reference += allLocations[j].cookiesEachHour[i];
+    }
+    hourlyCookieSales.push(reference);
+  }
+};
+
 //****Rendering all the head
 var renderHeader = function() {
   //**Render first head
@@ -60,6 +69,22 @@ var renderHeader = function() {
   thEL = document.createElement('th');
   thEL.textContent = 'Total Daily Cookie Sales';
   trEL.appendChild(thEL);
+};
+
+var renderFooter = function() {
+  var tfootEL = document.createElement('tfoot');
+  var trEL = document.createElement('tr');
+  var tdEL = document.createElement('td');
+  tdEL.textContent = 'Hourly Storewide Totals';
+  tfootEL.appendChild(trEL);
+  trEL.appendChild(tdEL);
+  for (var i = 0; i < hours.length; i++) {
+    var tdEL = document.createElement('td');
+    tdEL.textContent = hourlyCookieSales[i];
+    tfootEL.appendChild(trEL);
+    trEL.appendChild(tdEL);
+  }
+  theTable.appendChild(tfootEL);
 };
 
 CookieStore.prototype.render = function() {
@@ -83,27 +108,35 @@ CookieStore.prototype.render = function() {
 };
 
 var pikePlace = new CookieStore('Pike Place Market', 23, 65, 6.3);
-pikePlace.calcCustomersThisHour();
-pikePlace.calcCookiesThisHour();
-
 var seaTac = new CookieStore('Seatac', 3, 24, 1.2);
-seaTac.calcCustomersThisHour();
-seaTac.calcCookiesThisHour();
-
 var seattleCenter = new CookieStore('Seattle Center', 11, 38, 3.7);
-seattleCenter.calcCustomersThisHour();
-seattleCenter.calcCookiesThisHour();
-
 var capitolHill = new CookieStore('Capitol Hill', 20, 38, 2.3);
-capitolHill.calcCustomersThisHour();
-capitolHill.calcCookiesThisHour();
 var alki = new CookieStore('Alki', 2, 16, 4.6);
-alki.calcCustomersThisHour();
-alki.calcCookiesThisHour();
-
 renderHeader();
-pikePlace.render();
-seaTac.render();
-seattleCenter.render();
-capitolHill.render();
-alki.render();
+calcHourlyTotals();
+renderFooter();
+
+for (var i = 0; i < allLocations.length; i++) {
+  allLocations[i].render();
+};
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Start even listener
+
+function handleStoreSubmit(submit) {
+  event.preventDefault();
+  var newStoreLocation = event.target.storeLocation.value;
+  var minCustomers = parseInt(event.target.minCustomers.value);
+  var maxCustomers = parseInt(event.target.maxCustomers.value);
+  var avgCookie = parseInt(event.target.avgCookiesSold.value);
+  new CookieStore(newStoreLocation, minCustomers, maxCustomers, avgCookie);
+  event.target.storeLocation.value = null;
+  event.target.minCustomers.value = null;
+  event.target.maxCustomers.value = null;
+  event.target.avgCookiesSold.value = null;
+  for (var i = allLocations.length - 1; i < allLocations.length; i++) {
+    allLocations[i].render();
+  };
+
+};
+var moreStores = document.getElementById('moreStores');
+
+moreStores.addEventListener('submit', handleStoreSubmit);
