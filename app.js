@@ -1,7 +1,7 @@
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-//To-DO:
-//
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+//To-DO: use a for loop within a loop for calculating daily totals of all stores
+//Make header/footer row function
+var hours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 var allLocations = [];
 var theTable = document.getElementById('table');
 
@@ -12,7 +12,7 @@ function CookieStore(locationName, minCustomersPerHour, maxCustomersPerHour, avg
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
   this.customersEachHour = [];
   this.cookiesEachHour = [];
-  // this.totalDailyCookiesSold = 0;
+  this.totalDailyCookiesSold = 0;
   allLocations.push(this);
 }
 
@@ -30,6 +30,8 @@ CookieStore.prototype.calcCookiesThisHour = function() {
   for (var j = 0; j < hours.length; j++) {
     var totalCookieSales = Math.ceil(this.customersEachHour[j] * this.avgCookiesPerCustomer);
     this.cookiesEachHour.push(totalCookieSales);
+    //****Creating total cookie
+    this.totalDailyCookiesSold += (totalCookieSales);
   }
 };
 // ***Attempting to make daily totals per store
@@ -40,32 +42,44 @@ CookieStore.prototype.calcCookiesThisHour = function() {
 //     return this.totalDailyCookiesSold.push(totalCookieSalesForDay);
 //   };
 // }
-
+//****Rendering all the head
 var renderHeader = function() {
+  //**Render first head
   var trEL = document.createElement('tr');
   var thEL = document.createElement('th');
   thEL.textContent = 'Location';
   trEL.appendChild(thEL);
+  //***Render hours in for loop
   for (var i = 0; i < hours.length; i++) {
     var thEL = document.createElement('th');
     thEL.textContent = hours[i];
     trEL.appendChild(thEL);
   }
   theTable.appendChild(trEL);
+  //***Render final header
+  thEL = document.createElement('th');
+  thEL.textContent = 'Total Daily Cookie Sales';
+  trEL.appendChild(thEL);
 };
 
 CookieStore.prototype.render = function() {
+  //****Rendering location name
   var trEL = document.createElement('tr');
   var tdEL = document.createElement('td');
   tdEL.textContent = this.locationName;
   trEL.appendChild(tdEL);
 
   for (var i = 0; i < hours.length; i++) {
+    //*****Rendering total cookies each hour
     var tdEL = document.createElement('td');
     tdEL.textContent = this.cookiesEachHour[i];
     trEL.appendChild(tdEL);
   }
   theTable.appendChild(trEL);
+  //***Rendering final row with total sales for day
+  tdEL = document.createElement('td');
+  tdEL.textContent = this.totalDailyCookiesSold;
+  trEL.appendChild(tdEL);
 };
 
 var pikePlace = new CookieStore('Pike Place Market', 23, 65, 6.3);
