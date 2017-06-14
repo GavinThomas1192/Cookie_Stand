@@ -1,9 +1,5 @@
 'use-strict;';
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-//Make header/footer row function
-//PUT RENDER FUNCTION INTO OBJECT CONTRUCTOR IN ORDER FOR FORM TO WORK
-//PARSE INT the data from form so it works in the object constructor
-//function render table
 var hours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 var allLocations = [];
 var theTable = document.getElementById('table');
@@ -70,8 +66,16 @@ var renderHeader = function() {
   thEL.textContent = 'Total Daily Cookie Sales';
   trEL.appendChild(thEL);
 };
-
+// 
+//
+// var deleteFooter = function() {
+//   var myFooter = document.getElementById('myfooter');
+//   if (myFooter !== null) {
+//     removeChild(myFooter);
+//   }
+// };
 var renderFooter = function() {
+  // deleteFooter();
   var tfootEL = document.createElement('tfoot');
   var trEL = document.createElement('tr');
   var tdEL = document.createElement('td');
@@ -84,6 +88,11 @@ var renderFooter = function() {
     tfootEL.appendChild(trEL);
     trEL.appendChild(tdEL);
   }
+  thEL = document.createElement('th');
+  thEL.textContent = hourlyCookieSales.reduce(function(a, b) {
+    return a + b;
+  }, 0);
+  trEL.appendChild(thEL);
   theTable.appendChild(tfootEL);
 };
 
@@ -101,6 +110,7 @@ CookieStore.prototype.render = function() {
     trEL.appendChild(tdEL);
   }
   theTable.appendChild(trEL);
+
   //***Rendering final row with total sales for day
   tdEL = document.createElement('td');
   tdEL.textContent = this.totalDailyCookiesSold;
