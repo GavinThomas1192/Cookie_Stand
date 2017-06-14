@@ -84,6 +84,11 @@ var renderFooter = function() {
     tfootEL.appendChild(trEL);
     trEL.appendChild(tdEL);
   }
+  thEL = document.createElement('th');
+  thEL.textContent = hourlyCookieSales.reduce(function(a, b) {
+    return a + b;
+  }, 0);
+  trEL.appendChild(thEL);
   theTable.appendChild(tfootEL);
 };
 
@@ -101,6 +106,7 @@ CookieStore.prototype.render = function() {
     trEL.appendChild(tdEL);
   }
   theTable.appendChild(trEL);
+
   //***Rendering final row with total sales for day
   tdEL = document.createElement('td');
   tdEL.textContent = this.totalDailyCookiesSold;
