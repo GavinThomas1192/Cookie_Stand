@@ -66,10 +66,9 @@ var renderHeader = function() {
   thEL.textContent = 'Total Daily Cookie Sales';
   trEL.appendChild(thEL);
 };
-//
+// 
 //
 // var deleteFooter = function() {
-//   tfootEL.id.value = 'myfooter';
 //   var myFooter = document.getElementById('myfooter');
 //   if (myFooter !== null) {
 //     removeChild(myFooter);
