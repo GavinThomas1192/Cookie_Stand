@@ -83,6 +83,7 @@ var renderFooter = function() {
   tdEL.textContent = 'Hourly Storewide Totals';
   tfootEL.appendChild(trEL);
   trEL.appendChild(tdEL);
+  //*********Testing For For loop
   //***********Rending totals for all stores per hour for all hours of day
   for (var i = 0; i < hours.length; i++) {
     var tdEL = document.createElement('td');
@@ -147,6 +148,8 @@ function handleStoreSubmit(submit) {
   for (var i = allLocations.length - 1; i < allLocations.length; i++) {
     allLocations[i].render();
   };
+  // calcHourlyTotals();
+  // renderFooter();
 
 };
 //***********Call Event listener
