@@ -10,7 +10,7 @@ table, td {
   padding: 10px 40px 10px 0px;
   font-size: 1.5em;
   border-spacing: 0px;
-  margin-top: 2%;
+  margin-top: 5%;
 }
 
 #container {
@@ -25,17 +25,18 @@ table, td {
   top: 0;
 }
 
-#textcontainer {}
-
-
-/*background img decoration*/
-
 body {
   font-family: Impact, cursive, sans-serif;
   /*background-color: rgb(204, 241, 255, 0.5);*/
   /*background-image: url("IMG/seattle.jpg");*/
   /*border: 1px solid black;*/
 }
+
+
+/*
+#table {
+  margin: 0px;
+}*/
 
 th, td {
   border: 1px solid black;
@@ -71,6 +72,7 @@ h1 {
 
 fieldset {
   border: 10px black solid;
+  float: right;
 }
 
 
