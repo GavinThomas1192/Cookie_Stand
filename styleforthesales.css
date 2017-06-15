@@ -61,7 +61,9 @@ form input {
   margin-right: 2em;
   width: 20em;
   height: 3em;
-  background-color: rgb(230, 248, 255)
+  background-color: rgb(230, 248, 255);
+  /*font-family: Impact, cursive, sans-serif;
+  font-size: 30px;*/
 }
 
 

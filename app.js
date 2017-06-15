@@ -36,7 +36,7 @@ CookieStore.prototype.calcCookiesThisHour = function() {
   }
 };
 //***********Math for hourly totals for all stores EACH hour
-var calcHourlyTotals = function() {
+calcHourlyTotals = function() {
   for (var i = 0; i < hours.length; i++) {
     var reference = 0;
     for (var j = 0; j < allLocations.length; j++) {
@@ -67,15 +67,15 @@ var renderHeader = function() {
 };
 //
 //
-// var deleteFooter = function() {
-//   var myFooter = document.getElementById('myfooter');
-//   if (myFooter !== null) {
-//     removeChild(myFooter);
-//   }
-// };
+var deleteFooter = function() {
+  var myFooter = document.getElementById('tfoot');
+  if (myFooter !== null) {
+    myFooter.parent.removeChild(myFooter);
+  }
+};
 //Rendering all the footer
 var renderFooter = function() {
-  // deleteFooter();
+  deleteFooter();
   //***********Rendering first box of footer
   var tfootEL = document.createElement('tfoot');
   var trEL = document.createElement('tr');
