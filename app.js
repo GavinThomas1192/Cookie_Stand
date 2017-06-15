@@ -1,6 +1,7 @@
 'use-strict;';
 //todo: delete table then re render
 //**Clear the table, then re render
+//***set table to var then var.innterHTML = ''
 var hours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 var allLocations = [];
 var theTable = document.getElementById('table');
@@ -37,16 +38,6 @@ CookieStore.prototype.calcCookiesThisHour = function() {
     this.totalDailyCookiesSold += (totalCookieSales);
   }
 };
-//***********Math for hourly totals for all stores EACH hour
-calcHourlyTotals = function() {
-  for (var i = 0; i < hours.length; i++) {
-    var reference = 0;
-    for (var j = 0; j < allLocations.length; j++) {
-      reference += allLocations[j].cookiesEachHour[i];
-    }
-    hourlyCookieSales.push(reference);
-  }
-};
 
 //***********Rendering all the head
 var renderHeader = function() {
@@ -69,15 +60,13 @@ var renderHeader = function() {
 };
 //
 //
-var deleteFooter = function() {
-  var myFooter = document.getElementById('tfoot');
-  if (myFooter !== null) {
-    myFooter.parent.removeChild(myFooter);
+var deleteTable = function() {
+  if (theTable !== null) {
+    myTable.parentNode.removeChild(myTable);
   }
 };
 //Rendering all the footer
 var renderFooter = function() {
-  deleteFooter();
   //***********Rendering first box of footer
   var tfootEL = document.createElement('tfoot');
   var trEL = document.createElement('tr');
@@ -85,7 +74,15 @@ var renderFooter = function() {
   tdEL.textContent = 'Hourly Storewide Totals';
   tfootEL.appendChild(trEL);
   trEL.appendChild(tdEL);
-  //*********Testing For For loop
+  // calcHourlyTotals = function() {
+  for (var i = 0; i < hours.length; i++) {
+    var reference = 0;
+    for (var j = 0; j < allLocations.length; j++) {
+      reference += allLocations[j].cookiesEachHour[i];
+      // newvariable += allLocations[j].cookiesEachHour[i];
+    }
+    hourlyCookieSales.push(reference);
+  }
   //***********Rending totals for all stores per hour for all hours of day
   for (var i = 0; i < hours.length; i++) {
     var tdEL = document.createElement('td');
@@ -122,19 +119,19 @@ CookieStore.prototype.render = function() {
   trEL.appendChild(tdEL);
 };
 
+renderAll = function() {
+  renderHeader();
+  renderFooter();
+  for (var i = 0; i < allLocations.length; i++) {
+    allLocations[i].render();
+  };
+};
+
 var pikePlace = new CookieStore('Pike Place Market', 23, 65, 6.3);
 var seaTac = new CookieStore('Seatac', 3, 24, 1.2);
 var seattleCenter = new CookieStore('Seattle Center', 11, 38, 3.7);
 var capitolHill = new CookieStore('Capitol Hill', 20, 38, 2.3);
 var alki = new CookieStore('Alki', 2, 16, 4.6);
-renderHeader();
-calcHourlyTotals();
-renderFooter();
-//***********Rendering all the table
-for (var i = 0; i < allLocations.length; i++) {
-  allLocations[i].render();
-};
-
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Event listener function
 function handleStoreSubmit(submit) {
   event.preventDefault();
@@ -150,10 +147,10 @@ function handleStoreSubmit(submit) {
   for (var i = allLocations.length - 1; i < allLocations.length; i++) {
     allLocations[i].render();
   };
-  // calcHourlyTotals();
-  // renderFooter();
 
 };
 //***********Call Event listener
 var moreStores = document.getElementById('moreStores');
 moreStores.addEventListener('submit', handleStoreSubmit);
+
+renderAll();
