@@ -1,4 +1,6 @@
 'use-strict;';
+//todo: delete table then re render
+//**Clear the table, then re render
 var hours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 var allLocations = [];
 var theTable = document.getElementById('table');
