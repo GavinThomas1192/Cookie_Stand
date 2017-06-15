@@ -31,6 +31,7 @@ CookieStore.prototype.calcCustomersThisHour = function() {
 };
 //***********Math to calc avg cookies sold each hour from min, max, and avg cookie per
 CookieStore.prototype.calcCookiesThisHour = function() {
+  this.totalDailyCookiesSold = 0;
   for (var j = 0; j < hours.length; j++) {
     var totalCookieSales = Math.ceil(this.customersEachHour[j] * this.avgCookiesPerCustomer);
     this.cookiesEachHour.push(totalCookieSales);
