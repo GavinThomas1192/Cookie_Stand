@@ -44,6 +44,7 @@ th {
 h1 {
   text-align: center;
   font-size: 400%;
+  margin-left: 17%;
 }
 
 
@@ -115,4 +116,11 @@ button:hover {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+#fishpic {
+  float: right;
+  height: 2em;
+  width: 6em;
+  z-index: -1;
 }
