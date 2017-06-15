@@ -1,4 +1,4 @@
-'use-strict';
+"use-strict";
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 var allLocations = [];
 var theTable = document.getElementById('table');
@@ -59,7 +59,7 @@ CookieStore.prototype.render = function() {
   tdEL.textContent = this.locationName;
   trEL.appendChild(tdEL);
 
-  for (var i = 0; i < hours.length; i++) {
+  for (var i = 0; i < hours.length + 1; i++) {
     var tdEL = document.createElement('td');
     tdEL.textContent = this.cookiesEachHour[i];
     trEL.appendChild(tdEL);
@@ -85,7 +85,7 @@ function renderFooter() {
     thEL.textContent = hourlyTotal;
     trEL.appendChild(thEL);
   }
-  thEL = document.createElement('td');
+  thEL = document.createElement('th');
   thEL.textContent = totalOfTotals;
   trEL.appendChild(thEL);
   theTable.appendChild(trEL);
@@ -113,7 +113,6 @@ function handleStoreSubmit(event) {
   var minCustomers = parseInt(event.target.minCustomers.value);
   var maxCustomers = parseInt(event.target.maxCustomers.value);
   var avgCookie = parseFloat(event.target.avgCookiesSold.value);
-
   for (var i = 0; i < allLocations.length; i++) {
     if (newStoreLocation === allLocations[i].locationName) {
       allLocations[i].minCustomersPerHour = minCustomers;
@@ -123,6 +122,7 @@ function handleStoreSubmit(event) {
       allLocations[i].totalDaily = 0;
       allLocations[i].customersEachHour = [];
       allLocations[i].cookiesEachHour = [];
+      allLocations[i].calcCustomersThisHour();
       allLocations[i].calcCookiesThisHour();
       console.log('A match was found at index', allLocations[i]);
       renderTable();
