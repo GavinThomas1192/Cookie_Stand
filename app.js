@@ -1,10 +1,9 @@
 'use-strict;';
-// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 var hours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 var allLocations = [];
 var theTable = document.getElementById('table');
 var hourlyCookieSales = [];
-
+//***********Object Constructor for new Cookie Store Location
 function CookieStore(locationName, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerCustomer) {
   this.locationName = locationName;
   this.minCustomersPerHour = minCustomersPerHour;
@@ -17,7 +16,7 @@ function CookieStore(locationName, minCustomersPerHour, maxCustomersPerHour, avg
   this.calcCookiesThisHour();
   allLocations.push(this);
 }
-
+//***********Math to calc avg customers with a min and max per hour
 CookieStore.prototype.calcCustomersThisHour = function() {
   var reference = [];
   for (var i = 0; i < hours.length; i++) {
@@ -27,7 +26,7 @@ CookieStore.prototype.calcCustomersThisHour = function() {
   this.customersEachHour = reference;
   return numberCustomersPerHour;
 };
-
+//***********Math to calc avg cookies sold each hour from min, max, and avg cookie per
 CookieStore.prototype.calcCookiesThisHour = function() {
   for (var j = 0; j < hours.length; j++) {
     var totalCookieSales = Math.ceil(this.customersEachHour[j] * this.avgCookiesPerCustomer);
@@ -36,7 +35,7 @@ CookieStore.prototype.calcCookiesThisHour = function() {
     this.totalDailyCookiesSold += (totalCookieSales);
   }
 };
-//**Attempting to make totals per hour
+//***********Math for hourly totals for all stores EACH hour
 var calcHourlyTotals = function() {
   for (var i = 0; i < hours.length; i++) {
     var reference = 0;
@@ -47,26 +46,26 @@ var calcHourlyTotals = function() {
   }
 };
 
-//****Rendering all the head
+//***********Rendering all the head
 var renderHeader = function() {
-  //**Render first head
+  //***********Render first head
   var trEL = document.createElement('tr');
   var thEL = document.createElement('th');
   thEL.textContent = 'Location';
   trEL.appendChild(thEL);
-  //***Render hours in for loop
+  //***********Render hours in for loop
   for (var i = 0; i < hours.length; i++) {
     var thEL = document.createElement('th');
     thEL.textContent = hours[i];
     trEL.appendChild(thEL);
   }
   theTable.appendChild(trEL);
-  //***Render final header
+  //***********Render final header
   thEL = document.createElement('th');
   thEL.textContent = 'Total Daily Cookie Sales';
   trEL.appendChild(thEL);
 };
-// 
+//
 //
 // var deleteFooter = function() {
 //   var myFooter = document.getElementById('myfooter');
@@ -74,14 +73,17 @@ var renderHeader = function() {
 //     removeChild(myFooter);
 //   }
 // };
+//Rendering all the footer
 var renderFooter = function() {
   // deleteFooter();
+  //***********Rendering first box of footer
   var tfootEL = document.createElement('tfoot');
   var trEL = document.createElement('tr');
   var tdEL = document.createElement('td');
   tdEL.textContent = 'Hourly Storewide Totals';
   tfootEL.appendChild(trEL);
   trEL.appendChild(tdEL);
+  //***********Rending totals for all stores per hour for all hours of day
   for (var i = 0; i < hours.length; i++) {
     var tdEL = document.createElement('td');
     tdEL.textContent = hourlyCookieSales[i];
@@ -97,7 +99,7 @@ var renderFooter = function() {
 };
 
 CookieStore.prototype.render = function() {
-  //****Rendering location name
+  //***********Rendering location name
   var trEL = document.createElement('tr');
   var tdEL = document.createElement('td');
   tdEL.textContent = this.locationName;
@@ -111,7 +113,7 @@ CookieStore.prototype.render = function() {
   }
   theTable.appendChild(trEL);
 
-  //***Rendering final row with total sales for day
+  //***********Rendering final row with total sales for day
   tdEL = document.createElement('td');
   tdEL.textContent = this.totalDailyCookiesSold;
   trEL.appendChild(tdEL);
@@ -125,12 +127,12 @@ var alki = new CookieStore('Alki', 2, 16, 4.6);
 renderHeader();
 calcHourlyTotals();
 renderFooter();
-
+//***********Rendering all the table
 for (var i = 0; i < allLocations.length; i++) {
   allLocations[i].render();
 };
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Start even listener
 
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Event listener function
 function handleStoreSubmit(submit) {
   event.preventDefault();
   var newStoreLocation = event.target.storeLocation.value;
@@ -147,6 +149,6 @@ function handleStoreSubmit(submit) {
   };
 
 };
+//***********Call Event listener
 var moreStores = document.getElementById('moreStores');
-
 moreStores.addEventListener('submit', handleStoreSubmit);
