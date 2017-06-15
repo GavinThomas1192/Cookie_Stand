@@ -33,11 +33,9 @@ body {
   /*border: 1px solid black;*/
 }
 
-
-/*
-#table {
-  margin: 0px;
-}*/
+table {
+  margin-left: 2em;
+}
 
 th, td {
   border: 1px solid black;
@@ -92,6 +90,7 @@ form input {
 
 form {
   text-align: center;
+  margin-right: 2em;
 }
 
 

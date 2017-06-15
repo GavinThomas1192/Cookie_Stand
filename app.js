@@ -1,7 +1,7 @@
 'use-strict;';
-//todo: delete table then re render
-//**Clear the table, then re render
-//***set table to var then var.innterHTML = ''
+//todo:
+//***Prevent Empty fieldset
+//****Update a current location/Delete a location
 var hours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 var allLocations = [];
 var theTable = document.getElementById('table');
@@ -138,7 +138,24 @@ function handleStoreSubmit(submit) {
   var newStoreLocation = event.target.storeLocation.value;
   var minCustomers = parseInt(event.target.minCustomers.value);
   var maxCustomers = parseInt(event.target.maxCustomers.value);
-  var avgCookie = parseInt(event.target.avgCookiesSold.value);
+  var avgCookie = parseFloat(event.target.avgCookiesSold.value);
+  for (var i = 0; i < allLocations.length; i++) {
+    if (newStoreLocation === allLocations[i].locationName) {
+      allLocations[i].minCustomersPerHour = minCustomers;
+      allLocations[i].maxCustomersPerHour = maxCustomers;
+      allLocations[i].avgCookiesPerCustomer = avgCookie;
+      allLocations[i].customersEachHour = [];
+      allLocations[i].cookiesEachHour = [];
+      allLocations[i].calcCustomersThisHour();
+      allLocations[i].calcCookiesThisHour();
+      renderAll();
+      event.target.storeLocation.value = null;
+      event.target.minCustomers.value = null;
+      event.target.maxCustomers.value = null;
+      event.target.avgCookiesSold.value = null;
+      return;
+    }
+  };
   new CookieStore(newStoreLocation, minCustomers, maxCustomers, avgCookie);
   event.target.storeLocation.value = null;
   event.target.minCustomers.value = null;
