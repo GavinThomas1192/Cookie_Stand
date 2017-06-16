@@ -1,12 +1,22 @@
 * {
-  border: solid 1px black;
+  /*border: solid 1px black;*/
   font-family: 'Roboto', sans-serif;
 }
 
-body {
+html {
+  margin: 0;
+  padding: 0;
+}
+
+#bodyImage {
   background-image: url("IMG/seattle.jpg");
-  background-blend-mode: lighten;
-  border: solid 1px black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+body {
+  /*background-color: rgba(0, 186, 255, 0.38);*/
 }
 
 #salmoncontainer {
@@ -31,7 +41,6 @@ body {
 
 nav {
   display: block;
-  background-color: pink;
 }
 
 nav ul {}
@@ -42,21 +51,57 @@ nav ul li {
   padding-left: 20px;
 }
 
+#headerContainer {
+  /*background-image: url("IMG/cutter.jpeg");*/
+  height: 20em;
+  opacity: 0.9;
+}
+
 #header1 {
+  text-transform: capitalize;
+  text-shadow: 2px 4px rgb(185, 244, 242);
   display: block;
+  font-size: 120px;
+  text-transform: full-width;
+  z-index: 1;
 }
 
 #header2 {
   display: block;
+  font-size: 60px;
+  margin-top: 30px;
 }
 
 header {
-  margin-top: 10px;
-  background-color: pink;
-  color: salmon;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 30px;
+  margin-top: 50px;
   text-align: center;
   max-width: 100%;
   z-index: 2;
 }
+
+#mainContainer {
+  /*background-color: pink;*/
+  margin: auto;
+}
+
+#h1container h1 {
+  /*background-color: green;*/
+  font-size: 60px;
+  margin-left: 20px;
+}
+
+#textContainer1 {
+  width: 30em;
+  font-size: 20px;
+  /*background-color: salmon;*/
+  position: inherit;
+  margin-left: 40px;
+}
+
+
+/*#textContainer2 {
+  position: inherit;
+  width: 30em;
+  background-color: gray;
+  margin-left: 50em;
+}*/
