@@ -37,6 +37,7 @@ CookieStore.prototype.calcCookiesThisHour = function() {
 };
 // Push hours to table header
 var renderHeader = function() {
+  // makeElement('th', 'locations', trEl);
   var trEL = document.createElement('tr');
   var thEL = document.createElement('th');
   thEL.textContent = 'Locations';
@@ -47,11 +48,16 @@ var renderHeader = function() {
     trEL.appendChild(thEL);
   }
   thEL = document.createElement('th');
-  thEL.textContent = 'Daily';
+  thEL.textContent = 'Daily Totals';
   trEL.appendChild(thEL);
   theTable.appendChild(trEL);
 };
-
+//
+// function makeElement(type, content, parent) {
+//   var newEl = document.createElement(type);
+//   newEl.textContent = content;
+//   parent.appendChild(newEl);
+// }
 // Push totals to TD's in DOM
 CookieStore.prototype.render = function() {
   var trEL = document.createElement('tr');
@@ -71,7 +77,7 @@ CookieStore.prototype.render = function() {
 function renderFooter() {
   var trEL = document.createElement('tr');
   var thEL = document.createElement('th');
-  thEL.textContent = 'Total';
+  thEL.textContent = 'Hourly Totals';
   trEL.appendChild(thEL);
   var totalOfTotals = 0;
   var hourlyTotal = 0;
@@ -129,7 +135,12 @@ function handleStoreSubmit(event) {
       return;
     }
   }
-
+  if (!newStoreLocation || !minCustomers || !maxCustomers || !avgCookie) {
+    return alert('All Fields Must Have A Value!');
+  }
+  if (typeof newStoreLocation !== 'string') {
+    return alert('The store name must be letters only');
+  }
   new CookieStore(newStoreLocation, minCustomers, maxCustomers, avgCookie);
 
   function clearForm() {
