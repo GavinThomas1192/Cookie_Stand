@@ -1,6 +1,5 @@
 /****todo make nav icons*/
 * {
-     /*border: solid 1px black;*/
      font-family: 'Roboto', sans-serif;
    }
 
@@ -114,19 +113,16 @@
    }
    #salmonHeader {
      position: absolute;
-  margin-top: -41em;
-  margin-left: 67em;
-  /*transform: rotate(-90deg);*/
+  margin-top: -36em;
+  margin-left: 74em;
   margin-bottom: 100px;
   overflow: hidden;
   max-width: 400px;
 }
 #familyBackground {
-  background-image: url("IMG/family2.png");
-  background-position: center;
   position: absolute;
   margin-left: 65%;
-  margin-top: -17em;
+  margin-top: -11.5em;
   max-height: 480px;
 }
 
