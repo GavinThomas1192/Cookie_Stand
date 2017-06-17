@@ -91,6 +91,7 @@
    #textContainer1 p {
      max-width: 30em;
      margin-left: 20px;
+     text-shadow: 1px 2px rgb(185, 244, 242);
    }
 
    #picturesRight {
@@ -122,8 +123,13 @@
 }
 #familyBackground {
   background-image: url("IMG/family2.png");
+  background-position: center;
   position: absolute;
   margin-left: 65%;
   margin-top: -17em;
-  max-height: 320px;
+  max-height: 480px;
+}
+
+#familyBackground p {
+  text-shadow: 1px 2px rgb(185, 244, 242);
 }
