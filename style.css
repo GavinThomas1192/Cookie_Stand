@@ -1,124 +1,120 @@
-/****todo make nav icons*/
 * {
-     font-family: 'Roboto', sans-serif;
-   }
+  font-family: 'Roboto', sans-serif;
+}
 
-   html {
-     margin: 0;
-     padding: 0;
-   }
+html {
+  margin: 0;
+  padding: 0;
+}
 
-   #bodyImage {
-     background-image: url("IMG/seattle.jpg");
-     width: 100%;
-     height: 100%;
-     position: absolute;
-   }
+#bodyImage {
+  background-image: url("IMG/seattle.jpg");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 
-   body {
-     /*background-color: rgba(0, 186, 255, 0.38);*/
-     background-image: url("family2.png")
-   }
+body {
+  background-image: url("family2.png")
+}
 
+nav {
+  display: block;
+  max-width: 640px;
+  text-decoration: none;
+}
 
-   nav {
-     display: block;
-     max-width: 640px;
-     text-decoration: none;
-   }
+nav ul li {
+  text-decoration: none;
+  display: inline-block;
+}
 
-   nav ul li{
-     text-decoration: none;
-     display: inline-block;
-   }
+nav ul li img {
+  display: inline-block;
+  padding-right: 20px;
+  padding-left: 20px;
+  max-width: 100px;
+  max-height: 60px;
+}
 
-   nav ul li img{
-     display: inline-block;
-     padding-right: 20px;
-     padding-left: 20px;
-     max-width: 100px;
-     max-height: 60px;
-   }
+#headerContainer {
+  height: 20em;
+  opacity: 0.9;
+}
 
+#header1 {
+  text-shadow: 2px 4px rgb(185, 244, 242);
+  display: block;
+  font-size: 120px;
+  font-weight: 600;
+}
 
-   #headerContainer {
-     /*background-image: url("IMG/cutter.jpeg");*/
-     height: 20em;
-     opacity: 0.9;
-   }
+#header2 {
+  display: block;
+  font-size: 60px;
+  margin-top: 30px;
+}
 
-   #header1 {
-     text-shadow: 2px 4px rgb(185, 244, 242);
-     display: block;
-     font-size: 120px;
-     font-weight: 600;
-   }
+header {
+  margin-top: 50px;
+  text-align: center;
+  max-width: 100%;
+}
 
-   #header2 {
-     display: block;
-     font-size: 60px;
-     margin-top: 30px;
-   }
+#mainContainer {
+  margin: auto;
+}
 
-   header {
-     margin-top: 50px;
-     text-align: center;
-     max-width: 100%;
+#h1container h1 {
+  text-align: center;
+  /*background-color: green;*/
+  font-size: 60px;
+  margin-top: -60px;
+}
 
-   }
+#textContainer1 {
+  width: 30em;
+  font-size: 20px;
+  /*background-color: salmon;*/
+  position: inherit;
+  margin-left: 40px;
+  display: inline;
+}
 
-   #mainContainer {
-     margin: auto;
-   }
+#textContainer1 p {
+  max-width: 30em;
+  margin-left: 20px;
+  text-shadow: 1px 2px rgb(185, 244, 242);
+}
 
-   #h1container h1{
-     text-align: center;
-     /*background-color: green;*/
-     font-size: 60px;
-     margin-top: -60px;
-   }
+#picturesRight {
+  position: relative;
+  background-image: url("IMG/family2.png");
+  background-repeat: no-repeat;
+  float: right;
+  margin-top: 30em;
+  margin-right: 40px;
+  max-width: 720px;
+  width: 720px;
+  max-height: 1080px;
+  height: 480px;
+  display: grid;
+}
 
-   #textContainer1 {
-     width: 30em;
-     font-size: 20px;
-     /*background-color: salmon;*/
-     position: inherit;
-     margin-left: 40px;
-     display: inline;
-   }
+#picturesRight img {
+  max-width: 400px;
+  max-height: 50px;
+}
 
-   #textContainer1 p {
-     max-width: 30em;
-     margin-left: 20px;
-     text-shadow: 1px 2px rgb(185, 244, 242);
-   }
-
-   #picturesRight {
-     position: relative;
-     background-image: url("IMG/family2.png");
-     background-repeat: no-repeat;
-     float: right;
-     margin-top: 30em;
-     margin-right: 40px;
-     max-width: 720px;
-     width: 720px;
-     max-height: 1080px;
-     height: 480px;
-     display: grid;
-   }
-
-   #picturesRight img {
-     max-width: 400px;
-     max-height: 50px;
-   }
-   #salmonHeader {
-     position: absolute;
+#salmonHeader {
+  position: absolute;
   margin-top: -36em;
   margin-left: 74em;
   margin-bottom: 100px;
   overflow: hidden;
   max-width: 400px;
 }
+
 #familyBackground {
   position: absolute;
   margin-left: 65%;

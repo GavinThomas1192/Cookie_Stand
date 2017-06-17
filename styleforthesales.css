@@ -3,9 +3,6 @@ html body {
   padding: 0;
 }
 
-
-/*Spacing for the table*/
-
 table, td {
   padding: 10px 40px 10px 0px;
   font-size: 1.5em;
@@ -15,7 +12,6 @@ table, td {
 }
 
 #container {
-  /*background-color: rgb(204, 241, 255, 0.5);*/
   background-image: url("IMG/seattle.jpg");
   opacity: 0.7;
   margin: 0;
@@ -28,9 +24,6 @@ table, td {
 
 body {
   font-family: Impact, cursive, sans-serif;
-  /*background-color: rgb(204, 241, 255, 0.5);*/
-  /*background-image: url("IMG/seattle.jpg");*/
-  /*border: 1px solid black;*/
 }
 
 table {
@@ -41,9 +34,6 @@ th, td {
   border: 1px solid black;
   text-transform: capitalize;
 }
-
-
-/*Make even rows different color*/
 
 tr:nth-child(even) {
   background-color: rgb(230, 248, 255)
