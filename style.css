@@ -72,10 +72,11 @@
      margin: auto;
    }
 
-   #h1container h1 {
+   #h1container h1{
+     text-align: center;
      /*background-color: green;*/
      font-size: 60px;
-     margin-left: 20px;
+     margin-top: -60px;
    }
 
    #textContainer1 {
@@ -84,6 +85,12 @@
      /*background-color: salmon;*/
      position: inherit;
      margin-left: 40px;
+     display: inline;
+   }
+
+   #textContainer1 p {
+     max-width: 30em;
+     margin-left: 20px;
    }
 
    #picturesRight {
@@ -105,8 +112,18 @@
      max-height: 50px;
    }
    #salmonHeader {
-  margin-left: 50em;
-  transform: rotate(-90deg);
+     position: absolute;
+  margin-top: -41em;
+  margin-left: 67em;
+  /*transform: rotate(-90deg);*/
   margin-bottom: 100px;
   overflow: hidden;
+  max-width: 400px;
+}
+#familyBackground {
+  background-image: url("IMG/family2.png");
+  position: absolute;
+  margin-left: 65%;
+  margin-top: -17em;
+  max-height: 320px;
 }
