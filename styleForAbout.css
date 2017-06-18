@@ -25,6 +25,7 @@ main p {
   max-width: 300px;
   max-height: 600px;
   overflow: scroll;
+  text-shadow: 2px 4px rgb(185, 244, 242);
 }
 
 #paraTwo {
